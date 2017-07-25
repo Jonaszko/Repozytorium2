@@ -17,16 +17,14 @@ public class User extends Model {
     public Double amountToUser;  //wartosc waluty koncowej dla uzytkownika 
     public Double amountFromUser; //wartosc waluty pierwotnej od uzytkownika 
 
-    
 	public String email;
     public String password;
-    public String fullname;
+    
     public boolean isAdmin;
     
-    public User(String email, String password, String fullname) {
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
-        this.fullname = fullname;
     }
  
 }
