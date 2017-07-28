@@ -1,4 +1,73 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{welcome /}
+<!DOCTYPE html>
+
+		#{form @saveUser(user)}
+    	
+	  <form action="@{Application.saveUser(user)}" method="POST">
+			<h3>Formularz</h3>
+			#{if flash.error}
+			<h4 class="error">
+			${flash.error}
+			</h4>
+			#{/if}
+			#{else}
+			<h5>Zarejestruj się!</h5>
+			#{/else}
+			
+			<fieldset>
+				#{field 'user.name'} 
+				<input placeholder="Imie" name="user.name" type="text" tabindex="1"  autofocus value="${user?.name}">
+				#{/field}
+			</fieldset>
+			<fieldset>
+				#{field 'user.surname'} 
+				<input placeholder="Nzwsiko" name="user.surname" type="text" tabindex="1"  autofocus value="${user?.surname}">
+				#{/field}
+			</fieldset>
+			<fieldset>
+				#{field 'user.password'} 
+				<input placeholder="Hasło" name="user.password" type="password" tabindex="2" required value="${user?.password}">
+				#{/field}
+			</fieldset>
+			<fieldset>
+				#{field 'user.passwordRepeat'} 
+				<input placeholder="Powtórz hasło" name="user.passwordRepeat" type="password" tabindex="2" required value="${user?.passwordRepeat}">
+				#{/field}
+			</fieldset>
+			
+			<fieldset>
+				#{field 'user.email'} 
+				<input placeholder="Adres email" name="user.email" type="email" tabindex="2" required value="${user?.email}">
+				#{/field}
+			</fieldset>
+            
+            <fieldset>
+	    <select name="wybierz kryptowalute ktora przyslesz do wymiany">
+		<option>Bitcoin</option>
+        <option>Litecoin</option>
+	    </select>
+            </fieldset>
+
+            <fieldset>
+	    <select name="wybierz kryptowalute ktora chcesz otrzymac">
+		<option >Bitcoin</option>
+        <option >Litecoin</option>
+	    </select>
+            </fieldset>
+
+            <fieldset>
+				<button id="send" name="submit" value="index" type="submit" id="contact-submit" data-submit="...Sending">Wyślij</button>
+			</fieldset>
+			<fieldset>
+				<label>
+				<input type="checkbox" value="false" required >
+				Oświadczam, że zapoznałem się z <a href="#">regulaminem</a>
+				</label>
+			</fieldset>
+
+
+	  </form>
+      #{/form}
+	
