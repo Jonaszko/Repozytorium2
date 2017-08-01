@@ -1,5 +1,8 @@
 package controllers;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,9 +19,31 @@ public class Application extends Controller {
     	render();
     }
     
+    // download form url
+    public static String pobierzHTML(URL url) throws Exception {
+
+        BufferedReader pobierz = new BufferedReader(
+                              new InputStreamReader(
+                               url.openStream()   // zwraca InputStream związany z URLem
+                               )
+                               );
+        String temp;
+        String s = "";
+        String phrase = "(LTC)  $";
+        while ((temp = pobierz.readLine()) != null) {
+        	if((temp.indexOf(phrase) != -1)) {
+              s +=(temp + "\n");
+        	}
+              }
+
+        pobierz.close();
+
+        return s;
+     }
+    
     
  // SAVE USER
- 	public static void saveUser( User user) {
+ 	public static void saveUser( User user) throws Exception {
 
  		List<User> users = User.findAll();
  		
@@ -40,10 +65,10 @@ public class Application extends Controller {
  			}
  			
  			
- 			//URL url = new URL("https://coinmarketcap.com/currencies/bitcoin/#markets");
- 			//Scanner buff = new Scanner(url.openStream());
- 			//String url_data = buff.nextLine();
- 			//buff.close();
+ 			String durl="";
+ 			URL url=  new URL("https://coinmarketcap.com/currencies/litecoin/#markets");
+ 			durl = pobierzHTML(url);
+ 			System.out.println(durl);
  			
  			user.save();
 

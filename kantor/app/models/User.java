@@ -4,9 +4,14 @@ import javax.persistence.Entity;
 
 import play.db.jpa.Model;
 
-//@Entity
-public class User extends Model {
+import play.db.jpa.*;
+import play.data.validation.*;
+import javax.persistence.*;
 
+
+@Entity
+public class User extends Model {
+	
 	public String addressToUser;  //adres pod ktory nalezy wyslac walute koncowa
 	public String addressFromUser;  //adres z ktorego uzytkownik wyslal walute pierwotna
 
@@ -26,6 +31,10 @@ public class User extends Model {
 
 	public boolean isAdmin;
 
+	public User() {
+       super();
+    }
+	
 	public User(String addressToUser, 
 			String addressFromUser, 
 			String currencyToUser, 
