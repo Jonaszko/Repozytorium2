@@ -15,8 +15,8 @@ public class Application extends Controller {
         render();
     }
     
-    public static void welcome() {
-    	render();
+    public static void welcome(String price) {
+    	render("@welcome", price);
     }
     
     // download form url
@@ -38,6 +38,13 @@ public class Application extends Controller {
 
         pobierz.close();
 
+       // wyciecie tylko wartosci liczbowej ze stringa
+        int beginIndex;
+        beginIndex = s.indexOf("$");
+        s=s.substring(beginIndex);
+        int endIndex = s.indexOf(" ");
+        s=s.substring(1,endIndex);
+        
         return s;
      }
     
@@ -65,14 +72,15 @@ public class Application extends Controller {
  			}
  			
  			
- 			String durl="";
+ 			String durl="l";
  			URL url=  new URL("https://coinmarketcap.com/currencies/litecoin/#markets");
  			durl = pobierzHTML(url);
- 			System.out.println(durl);
  			
+ 			System.out.println(durl);
+ 			user.currencyToUser = durl;
  			user.save();
 
- 			welcome();
+ 			welcome(user.currencyToUser);
  			
  		} else {
  			flash.error("błędne powtórzenie hasła");
