@@ -1,0 +1,22 @@
+1.) Kantor kryptowalut bedzie oferowa³ wymiane z jednej kryptowaluty na inn¹ kryptowalutê zarówno 
+dla uzytkownikow zarejestrowanych jak i anonimowych.
+
+2.) Kantor kryptowalut bedzie korzysta³ z interfejsu wiersza poleceñ dla konkretnych portfeli 
+kryptowalut przyk³adowe komendy dla portfela bitcoin mozna znalezc na:
+
+https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list
+
+3.) Kantor bêdzie pobiera³ aktualne ceny kryptowalut ze strony:
+
+https://coinmarketcap.com/
+
+4.) Dzialanie kantoru bede wzorowa³ na dzialaniu strony:
+
+https://shapeshift.io/#/coins
+
+
+
+
+
+
+

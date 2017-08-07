@@ -3,6 +3,7 @@ package controllers;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,12 +16,12 @@ public class Application extends Controller {
         render();
     }
     
-    public static void welcome(String price) {
+    public static void welcome(double price) {
     	render("@welcome", price);
     }
     
     // download form url
-    public static String pobierzHTML(URL url) throws Exception {
+    public static String takeHTML(URL url, String phrase) throws Exception {
 
         BufferedReader pobierz = new BufferedReader(
                               new InputStreamReader(
@@ -29,7 +30,7 @@ public class Application extends Controller {
                                );
         String temp;
         String s = "";
-        String phrase = "(LTC)  $";
+        
         while ((temp = pobierz.readLine()) != null) {
         	if((temp.indexOf(phrase) != -1)) {
               s +=(temp + "\n");
@@ -72,15 +73,23 @@ public class Application extends Controller {
  			}
  			
  			
- 			String durl="l";
- 			URL url=  new URL("https://coinmarketcap.com/currencies/litecoin/#markets");
- 			durl = pobierzHTML(url);
+ 			String link1="";
+ 			List <String> nameCurrency = new ArrayList<String>();
+ 			nameCurrency.add("bitcoin");
+ 			nameCurrency.add("litecoin");
  			
- 			System.out.println(durl);
- 			user.currencyToUser = durl;
+ 			URL url=  new URL("https://coinmarketcap.com/currencies/"+nameCurrency.get(1));
+ 			List <String> phrase = new ArrayList<String>();
+ 			phrase.add("(BTC)  $");	
+ 			phrase.add("(LTC)  $");
+ 			link1 = takeHTML(url, phrase.get(1));
+ 			
+ 			double price1 = Double.parseDouble(link1);
+ 			System.out.println(price1);
+ 			
  			user.save();
 
- 			welcome(user.currencyToUser);
+ 			welcome(price1);
  			
  		} else {
  			flash.error("błędne powtórzenie hasła");
