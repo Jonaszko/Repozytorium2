@@ -9,9 +9,23 @@
 <body>
 
 	
-  <h2>Witaj</h2>
-  <p>Twoja wymiana zostala zarejestrowana poprawnie i jest w trakcie wykonywania</p>           
- <h1>Hello Actual price Litecoin from Coinmarketcap: ${price ?: 'sorry price no available'}</h1>
+  <h1>Witaj</h1>
+  <p>Twoja wymiana zostala zarejestrowana poprawnie i jest w trakcie wykonywania</p>  
+
+ <h1>Hello Actual price ${name1 ?: 'sorry currency unnavailable'} from Coinmarketcap: ${price1 ?: 'sorry price no available'}</h1>
+
+ <h1>Hello Actual price ${name2 ?: 'sorry currency unnavailable'} from Coinmarketcap: ${price2 ?: 'sorry price no available'}</h1>
+
+#{form @saveTransaction()}
+<form action="@{Application.saveTransaction()}" method="POST">
+<fieldset>
+	#{field 'user.name'} 
+    <input placeholder="Wprowadz kwote do wymiany" name="user.amountFromUser" type="number" required autofocus value="${user?.amountFromUser}">
+	#{/field}
+</fieldset>
+</form>
+#{/form}
+
 
 </body>
 

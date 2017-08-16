@@ -2,27 +2,30 @@ package models;
 
 import javax.persistence.Entity;
 
+import play.data.validation.Required;
 import play.db.jpa.Model;
-
-import play.db.jpa.*;
-import play.data.validation.*;
-import javax.persistence.*;
 
 
 @Entity
 public class User extends Model {
 	
+	
+	@Required(message="podaj prawidlowy adres")
 	public String addressToUser;  //adres pod ktory nalezy wyslac walute koncowa
+	@Required(message="podaj prawidlowy adres")
 	public String addressFromUser;  //adres z ktorego uzytkownik wyslal walute pierwotna
 
 	public String currencyToUser; //nazwa waluty ktora uzytkownik sobie zyczy
 	public String currencyFromUser; //nazwa waluty ktora uzytkownik wyslal
 
-	public Double amountToUser;  //wartosc waluty koncowej dla uzytkownika 
-	public Double amountFromUser; //wartosc waluty pierwotnej od uzytkownika 
+	@Required(message="podaj wartosc waluty ktora chcesz otrzymac")
+	public String amountToUser;  //wartosc waluty koncowej dla uzytkownika 
+	@Required(message="podaj wartosc waluty ktora zdeponujesz do wymiany")
+	public String amountFromUser; //wartosc waluty pierwotnej od uzytkownika 
 
 	public Double actualPriceCTU; //aktualna cena waluty koncowej dla uzytkownika 
 
+	@Required(message="podaj imie")
 	public String name;
 	public String surName;
 	public String email;
@@ -39,8 +42,8 @@ public class User extends Model {
 			String addressFromUser, 
 			String currencyToUser, 
 			String currencyFromUser,
-			Double amountToUser,
-			Double amountFromUser,
+			String amountToUser,
+			String amountFromUser,
 			Double actualPriceCTU,
 			String name,
 			String surName,

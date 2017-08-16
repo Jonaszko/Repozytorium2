@@ -3,9 +3,9 @@
 
 <!DOCTYPE html>
 
-		#{form @saveUser(user)}
+		#{form @saveUser()}
     	
-	  <form action="@{Application.saveUser(user)}" method="POST">
+	  <form action="@{Application.saveUser()}" method="POST">
 			<h3>Formularz</h3>
 			#{if flash.error}
 			<h4 class="error">
@@ -44,17 +44,21 @@
 			</fieldset>
             
             <fieldset>
-	    <select name="wybierz kryptowalute ktora przyslesz do wymiany">
-		<option>Bitcoin</option>
-        <option>Litecoin</option>
-	    </select>
+		#{field 'user.currencyFromUser'} 	
+	    <select name="user.currencyFromUser" value="${user?.currencyFromUser}">
+		<option value="bitcoin(BTC)  $">bitcoin</option>
+		<option value="litecoin(LTC)  $">litecoin</option>
+		</select>
+		#{/field}
             </fieldset>
 
             <fieldset>
-	    <select name="wybierz kryptowalute ktora chcesz otrzymac">
-		<option >Bitcoin</option>
-        <option >Litecoin</option>
+			#{field 'user.currencyToUser'} 
+	    <select name="user.currencyToUser" value="${user?.currencyToUser}">
+		<option value="bitcoin(BTC)  $" >bitcoin</option>
+        <option value="litecoin(LTC)  $" >litecoin</option>
 	    </select>
+		    #{/field}
             </fieldset>
 
             <fieldset>
