@@ -1,3 +1,16 @@
 # You can specialize this file for each language.
 # For example, for French create a messages.fr file
 #
+
+message.enterValidaddress = podaj prawidlowy adres
+message.enterCurrencyValueToReceive = podaj wartosc waluty ktora chcesz otrzymac
+message.enterCurrencyValueForExchange = podaj wartosc waluty ktora zdeponujesz do wymiany
+message.giveName = podaj imie
+message.existUserWithSpecifiedLogin = Istnieje użytkownik o podanym loginie, wybierz inny
+message.incorrectPasswordRepetition = błędne powtórzenie hasła
+message.hello = Witaj
+message.replacementRegistered = Twoja wymiana zostala zarejestrowana poprawnie i jest w trakcie 
+message.helloPrice = Witaj aktualna cena
+message.technicalProblems = przepraszamy problemy techniczne;(
+message.coinmarketcap = z coinmarketcap.com 
+message.enterValueToExchange = Wprowadz kwote do wymiany

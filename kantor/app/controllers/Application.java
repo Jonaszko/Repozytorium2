@@ -3,7 +3,6 @@ package controllers;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -57,7 +56,7 @@ public class Application extends Controller {
  		
  		for(int i=0; i<users.size(); i++) {
  			if(users.get(i).name.equals(user.name)) {
- 				flash.error("Istnieje użytkownik o podanym loginie, wybierz inny");
+ 				flash.error("@message.existUserWithSpecifiedLogin");
  				index();
  			}
  		}
@@ -88,11 +87,11 @@ public class Application extends Controller {
  			user.currencyFromUser = user.currencyFromUser.substring(0,beginIndex1);
  			user.currencyToUser = user.currencyToUser.substring(0,beginIndex2);
  			
- 			URL url1 =  new URL("https://coinmarketcap.com/currencies/"+user.currencyFromUser);
- 			URL url2 =  new URL("https://coinmarketcap.com/currencies/"+user.currencyToUser);
+ 			URL urlToPriceCurrencyFromUser =  new URL("https://coinmarketcap.com/currencies/"+user.currencyFromUser);
+ 			URL urlToPriceCurrencyToUser =  new URL("https://coinmarketcap.com/currencies/"+user.currencyToUser);
  			
- 			link1 = takeHTML(url1, phrase1);
- 			link2 = takeHTML(url2, phrase2);
+ 			link1 = takeHTML(urlToPriceCurrencyFromUser, phrase1);
+ 			link2 = takeHTML(urlToPriceCurrencyToUser, phrase2);
  			
  			double price1 = Double.parseDouble(link1);
  			double price2 = Double.parseDouble(link2);
@@ -103,7 +102,7 @@ public class Application extends Controller {
  			welcome(price1,price2,user.currencyFromUser,user.currencyToUser);
  			
  		} else {
- 			flash.error("błędne powtórzenie hasła");
+ 			flash.error("@message.incorrectPasswordRepetition");
  			index();
  		}
 

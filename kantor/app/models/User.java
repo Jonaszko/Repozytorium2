@@ -10,22 +10,22 @@ import play.db.jpa.Model;
 public class User extends Model {
 	
 	
-	@Required(message="podaj prawidlowy adres")
+	@Required(message="@message.enterValidaddress")
 	public String addressToUser;  //adres pod ktory nalezy wyslac walute koncowa
-	@Required(message="podaj prawidlowy adres")
+	@Required(message="@message.enterValidaddress")
 	public String addressFromUser;  //adres z ktorego uzytkownik wyslal walute pierwotna
 
 	public String currencyToUser; //nazwa waluty ktora uzytkownik sobie zyczy
 	public String currencyFromUser; //nazwa waluty ktora uzytkownik wyslal
 
-	@Required(message="podaj wartosc waluty ktora chcesz otrzymac")
+	@Required(message="@message.enterCurrencyValueToReceive")
 	public String amountToUser;  //wartosc waluty koncowej dla uzytkownika 
-	@Required(message="podaj wartosc waluty ktora zdeponujesz do wymiany")
+	@Required(message="@message.enterCurrencyValueForExchange")
 	public String amountFromUser; //wartosc waluty pierwotnej od uzytkownika 
 
 	public Double actualPriceCTU; //aktualna cena waluty koncowej dla uzytkownika 
 
-	@Required(message="podaj imie")
+	@Required(message="@message.giveName")
 	public String name;
 	public String surName;
 	public String email;
