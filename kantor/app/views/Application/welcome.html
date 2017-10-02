@@ -13,9 +13,9 @@
 
   <p>&{'message.replacementRegistered'}</p>  
 
- <h1>&{'message.helloPrice'} ${name1 ?: '&{message.technicalProblems}'} &{'message.coinmarketcap'} ${price1 ?: '&{message.technicalProblems}'}</h1>
+ <h1>&{'message.helloPrice'} ${name1 ?: '&{message.technicalProblems}'} <a href="https://coinmarketcap.com/">&{'message.coinmarketcap'}</a> ${price1 ?: '&{message.technicalProblems}'}</h1>
 
- <h1>&{'message.helloPrice'} ${name2 ?: '&{message.technicalProblems}'} &{'message.coinmarketcap'} ${price2 ?: '&{message.technicalProblems}'}</h1>
+ <h1>&{'message.helloPrice'} ${name2 ?: '&{message.technicalProblems}'} <a href="https://coinmarketcap.com/">&{'message.coinmarketcap'}</a> ${price2 ?: '&{message.technicalProblems}'}</h1>
 
 #{form @saveTransaction()}
 <form action="@{Application.saveTransaction()}" method="POST">

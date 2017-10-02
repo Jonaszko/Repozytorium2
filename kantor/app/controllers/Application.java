@@ -22,23 +22,23 @@ public class Application extends Controller {
     // download form url
     public static String takeHTML(URL url, String phrase) throws Exception {
 
-        BufferedReader pobierz = new BufferedReader(
+        BufferedReader take = new BufferedReader(
                               new InputStreamReader(
-                               url.openStream()   // zwraca InputStream związany z URLem
+                               url.openStream()
                                )
                                );
         String temp;
         String s = "";
         
-        while ((temp = pobierz.readLine()) != null) {
+        while ((temp = take.readLine()) != null) {
         	if((temp.indexOf(phrase) != -1)) {
               s +=(temp + "\n");
         	}
               }
 
-        pobierz.close();
+        take.close();
 
-       // wyciecie tylko wartosci liczbowej ze stringa
+      
         int beginIndex;	
         beginIndex = s.indexOf("$");
         s=s.substring(beginIndex);

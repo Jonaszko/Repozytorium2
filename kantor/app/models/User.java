@@ -11,19 +11,19 @@ public class User extends Model {
 	
 	
 	@Required(message="@message.enterValidaddress")
-	public String addressToUser;  //adres pod ktory nalezy wyslac walute koncowa
+	public String addressToUser; 
 	@Required(message="@message.enterValidaddress")
-	public String addressFromUser;  //adres z ktorego uzytkownik wyslal walute pierwotna
+	public String addressFromUser; 
 
-	public String currencyToUser; //nazwa waluty ktora uzytkownik sobie zyczy
-	public String currencyFromUser; //nazwa waluty ktora uzytkownik wyslal
+	public String currencyToUser; 
+	public String currencyFromUser; 
 
 	@Required(message="@message.enterCurrencyValueToReceive")
-	public String amountToUser;  //wartosc waluty koncowej dla uzytkownika 
+	public String amountToUser;  
 	@Required(message="@message.enterCurrencyValueForExchange")
-	public String amountFromUser; //wartosc waluty pierwotnej od uzytkownika 
+	public String amountFromUser; 
 
-	public Double actualPriceCTU; //aktualna cena waluty koncowej dla uzytkownika 
+	public Double actualPriceCTU;
 
 	@Required(message="@message.giveName")
 	public String name;
